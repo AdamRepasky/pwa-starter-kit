@@ -32,6 +32,8 @@ import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
+import { homeIcon } from './my-icons.js';
+
 import './snack-bar.js';
 
 class MyApp extends connect(store)(LitElement) {
@@ -74,7 +76,7 @@ class MyApp extends connect(store)(LitElement) {
           top: 0;
           left: 0;
           width: 100%;
-          text-align: center;
+          //text-align: center;
           background-color: var(--app-header-background-color);
           color: var(--app-header-text-color);
           border-bottom: 1px solid #eee;
@@ -85,9 +87,9 @@ class MyApp extends connect(store)(LitElement) {
         }
 
         [main-title] {
-          font-family: 'Pacifico';
-          text-transform: lowercase;
-          font-size: 30px;
+          //font-family: 'Pacifico';
+          //text-transform: lowercase;
+          font-size: 20px;
           /* In the narrow layout, the toolbar is offset by the width of the
           drawer button, and the text looks not centered. Add a padding to
           match that button */
@@ -203,9 +205,10 @@ class MyApp extends connect(store)(LitElement) {
 
         <!-- This gets hidden on a small screen-->
         <nav class="toolbar-list">
-          <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
+          <a ?selected="${this._page === 'view1'}" href="/view1">Home</a>
           <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
           <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'terminals'}" href="/terminals">Terminals</a>
         </nav>
       </app-header>
 
@@ -214,9 +217,10 @@ class MyApp extends connect(store)(LitElement) {
           .opened="${this._drawerOpened}"
           @opened-changed="${this._drawerOpenedChanged}">
         <nav class="drawer-list">
-          <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
+          <a ?selected="${this._page === 'view1'}" href="/view1">Home</a>
           <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
           <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+          <a ?selected="${this._page === 'terminals'}" href="/terminals">Terminals</a>
         </nav>
       </app-drawer>
 
@@ -225,6 +229,7 @@ class MyApp extends connect(store)(LitElement) {
         <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
         <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
         <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
+        <terminals-view class="page" ?active="${this._page === 'terminals'}"></terminals-view>
         <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
       </main>
 
